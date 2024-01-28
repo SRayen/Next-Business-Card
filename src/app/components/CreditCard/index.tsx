@@ -51,7 +51,6 @@ export const CreditCard = () => {
                   viewBox={`0 0 256 256`}
                 />
               </div>
-              <h1>{color}</h1>
               <p className="text-2xl font-bold italic">{profession}</p>
               <p className="text-2xl font-bold ">{phoneNumber}</p>
               <div className="flex gap-9">
