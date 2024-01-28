@@ -3,9 +3,8 @@
 import Image from "next/image";
 import { Tilt } from "react-tilt";
 import { Share_Tech_Mono } from "next/font/google";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Form from "./Form";
-import Edit from "./Edit";
 import QRCode from "react-qr-code";
 
 const shareTechMono = Share_Tech_Mono({
