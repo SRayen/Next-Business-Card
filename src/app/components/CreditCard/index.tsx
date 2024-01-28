@@ -79,7 +79,7 @@ export const CreditCard = () => {
       <HexColorPicker
         color={color}
         onChange={setColor}
-        style={{ width: "400px", height: "200px" }}
+        style={{ width: "400px", height: "200px", marginLeft: "12px" }}
       />
     </div>
   );
