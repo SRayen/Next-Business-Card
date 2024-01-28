@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Tilt } from "react-tilt";
 import { Share_Tech_Mono } from "next/font/google";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import Form from "./Form";
 import QRCode from "react-qr-code";
 import { HexColorPicker } from "react-colorful";
@@ -53,15 +53,16 @@ export const CreditCard = () => {
               style={{ color: color }}
               className={`flex flex-col w-full h-full justify-end gap-4`}
             >
-              <div className="w-16 ml-80 md:w-16 h-8 md:ml-72">
-                <QRCode
-                  size={256}
-                  style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-                  value={`name:${user.name}\nemail:${user.email}\nphoneNumber:${user.phoneNumber}\nprofession:${user.profession}\n\nCreated By: SRayen`}
-                  viewBox={`0 0 256 256`}
-                />
-              </div>
-
+              <Draggable>
+                <div className="w-16 ml-80 md:w-16 h-8 md:ml-72 cursor-pointer">
+                  <QRCode
+                    size={256}
+                    style={{ height: "auto", maxWidth: "100%", width: "100%" }}
+                    value={`name:${user.name}\nemail:${user.email}\nphoneNumber:${user.phoneNumber}\nprofession:${user.profession}\n\nCreated By: SRayen`}
+                    viewBox={`0 0 256 256`}
+                  />
+                </div>
+              </Draggable>
               <Draggable>
                 <p className="text-2xl font-bold italic cursor-pointer">
                   {user.profession}
