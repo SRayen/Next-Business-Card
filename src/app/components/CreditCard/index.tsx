@@ -5,6 +5,7 @@ import { Tilt } from "react-tilt";
 import { Share_Tech_Mono } from "next/font/google";
 import { useState } from "react";
 import Form from "./Form";
+import Edit from "./Edit";
 
 const shareTechMono = Share_Tech_Mono({
   weight: "400",
@@ -16,8 +17,10 @@ export const CreditCard = () => {
   const [email, setEmail] = useState("selmenrayen@gmail.com");
   const [phoneNumber, setPhoneNumber] = useState("+21699999999");
   const [profession, setProfession] = useState("Software Engineer");
+
+  const [color, setColor] = useState("white");
   return (
-    <>
+    <div>
       <Tilt
         className={`${shareTechMono.className} w-[425px] h-[270px] bg-gradient-to-tr rounded-2xl flex content-center items-center justify-center `}
       >
@@ -37,7 +40,9 @@ export const CreditCard = () => {
               width={60}
               height={30}
             />
-            <div className="flex flex-col w-full h-full justify-end gap-4 text-white">
+            <div
+              className={`flex flex-col w-full h-full justify-end gap-4 text-${color}`}
+            >
               <p className="text-2xl font-bold italic">{profession}</p>
               <p className="text-2xl font-bold ">{phoneNumber}</p>
               <div className="flex gap-9">
@@ -54,6 +59,7 @@ export const CreditCard = () => {
         setPhoneNumber={setPhoneNumber}
         setProfession={setProfession}
       />
-    </>
+      <Edit setColor={setColor} color={color} />
+    </div>
   );
 };

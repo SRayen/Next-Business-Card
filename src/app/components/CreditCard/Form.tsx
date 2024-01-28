@@ -13,7 +13,7 @@ export default function Form({
 }) {
   return (
     <div>
-      <form className="mt-2 mb-2 w-80 max-w-screen-lg sm:w-96 flex flex-col gap-2">
+      <form className="mt-4 mb-2 w-80 max-w-screen-lg sm:w-96 flex flex-col gap-1">
         <label htmlFor="name">Name</label>
         <input
           id="name"
