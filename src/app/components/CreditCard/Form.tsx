@@ -1,15 +1,20 @@
 import React, { Dispatch, SetStateAction } from "react";
+import { User } from ".";
 
 export default function Form({
-  setName,
-  setEmail,
-  setPhoneNumber,
-  setProfession,
+  // setName,
+  // setEmail,
+  // setPhoneNumber,
+  // setProfession,
+  setUser,
+  user,
 }: {
-  setName: Dispatch<SetStateAction<string>>;
-  setEmail: Dispatch<SetStateAction<string>>;
-  setPhoneNumber: Dispatch<SetStateAction<string>>;
-  setProfession: Dispatch<SetStateAction<string>>;
+  // setName: Dispatch<SetStateAction<string>>;
+  // setEmail: Dispatch<SetStateAction<string>>;
+  // setPhoneNumber: Dispatch<SetStateAction<string>>;
+  // setProfession: Dispatch<SetStateAction<string>>;
+  setUser: Dispatch<SetStateAction<User>>;
+  user: User;
 }) {
   return (
     <div>
@@ -20,7 +25,8 @@ export default function Form({
           type="text"
           placeholder="Enter your Name"
           className="input input-bordered input-info w-full max-w-xs"
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => setUser({ ...user, name: e.target.value })}
+          value={user.name}
         />
         <label htmlFor="email">Email address</label>
         <input
@@ -28,7 +34,8 @@ export default function Form({
           type="text"
           placeholder="Enter your Email address"
           className="input input-bordered input-info w-full max-w-xs"
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setUser({ ...user, email: e.target.value })}
+          value={user.email}
         />
         <label htmlFor="email">Profession</label>
         <input
@@ -36,7 +43,8 @@ export default function Form({
           type="text"
           placeholder="Enter your Email profession"
           className="input input-bordered input-info w-full max-w-xs"
-          onChange={(e) => setProfession(e.target.value)}
+          onChange={(e) => setUser({ ...user, profession: e.target.value })}
+          value={user.profession}
         />
         <label htmlFor="phone">Phone number</label>
         <input
@@ -44,7 +52,8 @@ export default function Form({
           type="text"
           placeholder="Enter your Phone number"
           className="input input-bordered input-info w-full max-w-xs"
-          onChange={(e) => setPhoneNumber(e.target.value)}
+          onChange={(e) => setUser({ ...user, phoneNumber: e.target.value })}
+          value={user.phoneNumber}
         />
       </form>
     </div>

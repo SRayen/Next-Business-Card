@@ -3,23 +3,35 @@
 import Image from "next/image";
 import { Tilt } from "react-tilt";
 import { Share_Tech_Mono } from "next/font/google";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Form from "./Form";
 import QRCode from "react-qr-code";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 const shareTechMono = Share_Tech_Mono({
   weight: "400",
   subsets: ["latin"],
 });
 
+export type User = {
+  name: string;
+  email: string;
+  phoneNumber: string;
+  profession: string;
+};
+
 export const CreditCard = () => {
-  const [name, setName] = useState("Rayen Selmen");
-  const [email, setEmail] = useState("selmenrayen95@gmail.com");
-  const [phoneNumber, setPhoneNumber] = useState("+21699999999");
-  const [profession, setProfession] = useState("Software Engineer");
+  const [user, setUser] = useState<User>({
+    name: "John Doe",
+    email: "johndoe@example.com",
+    phoneNumber: "+1234567890",
+    profession: "Software Engineer",
+  });
 
   const [color, setColor] = useState(false);
   console.log("color=>", color);
+
   return (
     <div>
       <Tilt
@@ -46,25 +58,26 @@ export const CreditCard = () => {
                 <QRCode
                   size={256}
                   style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-                  value={`name:${name}\nemail:${email}\nphoneNumber:${phoneNumber}\nprofession:${profession}\n\nCreated By: SRayen`}
+                  value={`name:${user.name}\nemail:${user.email}\nphoneNumber:${user.phoneNumber}\nprofession:${user.profession}\n\nCreated By: SRayen`}
                   viewBox={`0 0 256 256`}
                 />
               </div>
-              <p className="text-2xl font-bold italic">{profession}</p>
-              <p className="text-2xl font-bold ">{phoneNumber}</p>
+              <p className="text-2xl font-bold italic">{user.profession}</p>
+              <p className="text-2xl font-bold ">{user.phoneNumber}</p>
               <div className="flex gap-9">
-                <p className="text-lg uppercase font-extrabold ">{name}</p>
-                <p className="text-lg ">{email}</p>
+                <div dangerouslySetInnerHTML={{ __html: user.name }} />
+                {/* <p className="text-lg uppercase font-extrabold ">{name}</p> */}
+                <p className="text-lg ">{user.email}</p>
               </div>
             </div>
           </div>
         </div>
       </Tilt>
-      <Form
-        setName={setName}
-        setEmail={setEmail}
-        setPhoneNumber={setPhoneNumber}
-        setProfession={setProfession}
+      <Form setUser={setUser} user={user} />
+      <ReactQuill
+        theme="snow"
+        value={user.name} // Use formatted HTML for display
+        // onChange={setUser} // Use handleQuillChange to extract plain text
       />
       <button
         className="btn btn-outline ml-32"
