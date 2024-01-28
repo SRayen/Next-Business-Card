@@ -36,18 +36,10 @@ export const CreditCard = () => {
                 width={75}
                 height={24}
               />
-              {/* <div>
-                <QRCode
-                  size={256}
-                  style={{ height: "auto", maxWidth: "10%", width: "10%" }}
-                  value={`name:${name}\nemail:${email}\nphoneNumber:${phoneNumber}\nprofession:${profession}\n\nCreated By: SRayen`}
-                  viewBox={`0 0 256 256`}
-                />
-              </div> */}
             </div>
 
             <div
-              className={`flex flex-col w-full h-full justify-end gap-4 text-${color} `}
+              className={`flex flex-col w-full h-full justify-end gap-4 text-${color}`}
             >
               <div className="w-18 h-8 mt-20 ml-72">
                 <QRCode
