@@ -6,7 +6,7 @@ import { Share_Tech_Mono } from "next/font/google";
 import { useState, useEffect, useRef } from "react";
 import Form from "./Form";
 import QRCode from "react-qr-code";
-import ReactQuill, { Quill } from "react-quill";
+import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "react-quill/dist/quill.bubble.css";
 
