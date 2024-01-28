@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Tilt } from "react-tilt";
 import { Share_Tech_Mono } from "next/font/google";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Form from "./Form";
 import Edit from "./Edit";
 import QRCode from "react-qr-code";
@@ -19,8 +19,9 @@ export const CreditCard = () => {
   const [phoneNumber, setPhoneNumber] = useState("+21699999999");
   const [profession, setProfession] = useState("Software Engineer");
 
-  const [color, setColor] = useState("white");
+  const [color, setColor] = useState(false);
   console.log("color=>", color);
+
   return (
     <div>
       <Tilt
@@ -39,7 +40,9 @@ export const CreditCard = () => {
             </div>
 
             <div
-              className={`flex flex-col w-full h-full justify-end gap-4 text-${color}`}
+              className={`flex flex-col w-full h-full justify-end gap-4 text-${
+                color ? "black" : "white"
+              }`}
             >
               <div className="w-16 ml-80 md:w-16 h-8 md:ml-72">
                 <QRCode
@@ -49,7 +52,7 @@ export const CreditCard = () => {
                   viewBox={`0 0 256 256`}
                 />
               </div>
-
+              <h1>{color}</h1>
               <p className="text-2xl font-bold italic">{profession}</p>
               <p className="text-2xl font-bold ">{phoneNumber}</p>
               <div className="flex gap-9">
@@ -66,7 +69,12 @@ export const CreditCard = () => {
         setPhoneNumber={setPhoneNumber}
         setProfession={setProfession}
       />
-      <Edit setColor={setColor} color={color} />
+      <button
+        className="btn btn-outline ml-32"
+        onClick={() => setColor(!color)}
+      >
+        Color
+      </button>
     </div>
   );
 };
