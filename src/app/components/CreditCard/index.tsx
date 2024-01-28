@@ -19,7 +19,6 @@ export const CreditCard = () => {
   const [profession, setProfession] = useState("Software Engineer");
 
   const [color, setColor] = useState(false);
-  console.log("color=>", color);
 
   return (
     <div>
