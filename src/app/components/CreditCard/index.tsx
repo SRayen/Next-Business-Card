@@ -6,8 +6,9 @@ import { Share_Tech_Mono } from "next/font/google";
 import { useState, useEffect, useRef } from "react";
 import Form from "./Form";
 import QRCode from "react-qr-code";
-import ReactQuill from "react-quill";
+import ReactQuill, { Quill } from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import "react-quill/dist/quill.bubble.css";
 
 const shareTechMono = Share_Tech_Mono({
   weight: "400",
@@ -31,6 +32,46 @@ export const CreditCard = () => {
 
   const [color, setColor] = useState(false);
   console.log("color=>", color);
+
+  const handleQuillChange = (content: any) => {
+    setUser({
+      ...user, // Spread existing properties
+      name: content, // Update name with new content
+    });
+  };
+
+  let modules = {
+    toolbar: [
+      [{ header: [1, 2, false] }],
+      ["bold", "italic", "underline", "strike", "blockquote"],
+      [
+        { list: "ordered" },
+        { list: "bullet" },
+        { indent: "-1" },
+        { indent: "+1" },
+      ],
+      ["link", "image"],
+      ["clean"],
+      [{ font: [] }],
+    ],
+  };
+
+  let formats = [
+    "header",
+    "font",
+    "size",
+    "bold",
+    "italic",
+    "underline",
+    "strike",
+    "blockquote",
+    "list",
+    "bullet",
+    "indent",
+    "link",
+    "image",
+    "color",
+  ];
 
   return (
     <div>
@@ -65,7 +106,10 @@ export const CreditCard = () => {
               <p className="text-2xl font-bold italic">{user.profession}</p>
               <p className="text-2xl font-bold ">{user.phoneNumber}</p>
               <div className="flex gap-9">
-                <div dangerouslySetInnerHTML={{ __html: user.name }} />
+                <div
+                  className="text-lg"
+                  dangerouslySetInnerHTML={{ __html: user.name }}
+                />
                 {/* <p className="text-lg uppercase font-extrabold ">{name}</p> */}
                 <p className="text-lg ">{user.email}</p>
               </div>
@@ -76,8 +120,10 @@ export const CreditCard = () => {
       <Form setUser={setUser} user={user} />
       <ReactQuill
         theme="snow"
-        value={user.name} // Use formatted HTML for display
-        // onChange={setUser} // Use handleQuillChange to extract plain text
+        modules={modules}
+        formats={formats}
+        value={`${user.name}`} // Use formatted HTML for display
+        onChange={(content) => handleQuillChange(content)} // Use handleQuillChange to extract plain text
       />
       <button
         className="btn btn-outline ml-32"

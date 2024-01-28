@@ -26,7 +26,11 @@ export default function Form({
           placeholder="Enter your Name"
           className="input input-bordered input-info w-full max-w-xs"
           onChange={(e) => setUser({ ...user, name: e.target.value })}
-          value={user.name}
+          value={
+            user.name && !user.name.includes("<")
+              ? user.name
+              : user.name?.replace(/<[^>]*>/g, "")
+          }
         />
         <label htmlFor="email">Email address</label>
         <input
