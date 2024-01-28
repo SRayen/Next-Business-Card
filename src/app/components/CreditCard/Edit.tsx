@@ -1,4 +1,5 @@
-import React, { Dispatch, SetStateAction } from "react";
+"use client";
+import React, { Dispatch, SetStateAction, useState, useEffect } from "react";
 
 export default function Edit({
   setColor,
@@ -7,6 +8,13 @@ export default function Edit({
   setColor: Dispatch<SetStateAction<string>>;
   color: string;
 }) {
+  const [mounted, Setmounted] = useState(false);
+  useEffect(() => {
+    Setmounted(!mounted);
+  }, []);
+
+  if (!mounted) return <></>;
+
   return (
     <div className="border bg-blue-50 w-72 mx-4">
       <div className="form-control">
