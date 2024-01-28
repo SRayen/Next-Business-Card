@@ -19,7 +19,7 @@ export const CreditCard = () => {
   const [profession, setProfession] = useState("Software Engineer");
 
   const [color, setColor] = useState(false);
-
+  console.log("color=>", color);
   return (
     <div>
       <Tilt
@@ -38,8 +38,8 @@ export const CreditCard = () => {
             </div>
 
             <div
-              className={`flex flex-col w-full h-full justify-end gap-4 text-${
-                color ? "black" : "white"
+              className={`flex flex-col w-full h-full justify-end gap-4 ${
+                color && "text-white"
               }`}
             >
               <div className="w-16 ml-80 md:w-16 h-8 md:ml-72">
