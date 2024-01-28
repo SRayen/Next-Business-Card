@@ -89,9 +89,10 @@ export const CreditCard = () => {
       <Form setUser={setUser} user={user} />
 
       <HexColorPicker
+        className="mx-auto"
         color={color}
         onChange={setColor}
-        style={{ width: "400px", height: "200px", marginLeft: "12px" }}
+        style={{ width: "360px", height: "150px" }}
       />
     </div>
   );
