@@ -6,6 +6,8 @@ import { Share_Tech_Mono } from "next/font/google";
 import { useState } from "react";
 import Form from "./Form";
 import Edit from "./Edit";
+import ReactDOM from "react-dom";
+import QRCode from "react-qr-code";
 
 const shareTechMono = Share_Tech_Mono({
   weight: "400",
@@ -14,7 +16,7 @@ const shareTechMono = Share_Tech_Mono({
 
 export const CreditCard = () => {
   const [name, setName] = useState("Rayen Selmen");
-  const [email, setEmail] = useState("selmenrayen@gmail.com");
+  const [email, setEmail] = useState("selmenrayen95@gmail.com");
   const [phoneNumber, setPhoneNumber] = useState("+21699999999");
   const [profession, setProfession] = useState("Software Engineer");
 
@@ -26,23 +28,36 @@ export const CreditCard = () => {
       >
         <div className="p-8 w-full h-full bg-[url('/bg-1.png')] rounded-3xl">
           <div className="relative w-full h-full">
-            <Image
-              className="absolute"
-              alt=""
-              src="/logo.png"
-              width={75}
-              height={24}
-            />
-            <Image
-              className="absolute right-0 bottom-0 top-0 my-auto"
-              alt=""
-              src="/chip.svg"
-              width={60}
-              height={30}
-            />
+            <div className="flex gap-10">
+              <Image
+                className="absolute"
+                alt=""
+                src="/logo.png"
+                width={75}
+                height={24}
+              />
+              {/* <div>
+                <QRCode
+                  size={256}
+                  style={{ height: "auto", maxWidth: "10%", width: "10%" }}
+                  value={`name:${name}\nemail:${email}\nphoneNumber:${phoneNumber}\nprofession:${profession}\n\nCreated By: SRayen`}
+                  viewBox={`0 0 256 256`}
+                />
+              </div> */}
+            </div>
+
             <div
-              className={`flex flex-col w-full h-full justify-end gap-4 text-${color}`}
+              className={`flex flex-col w-full h-full justify-end gap-4 text-${color} `}
             >
+              <div className="w-18 h-8 mt-20 ml-72">
+                <QRCode
+                  size={256}
+                  style={{ height: "auto", maxWidth: "100%", width: "100%" }}
+                  value={`name:${name}\nemail:${email}\nphoneNumber:${phoneNumber}\nprofession:${profession}\n\nCreated By: SRayen`}
+                  viewBox={`0 0 256 256`}
+                />
+              </div>
+
               <p className="text-2xl font-bold italic">{profession}</p>
               <p className="text-2xl font-bold ">{phoneNumber}</p>
               <div className="flex gap-9">

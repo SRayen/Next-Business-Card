@@ -32,9 +32,9 @@ export default function Form({
         />
         <label htmlFor="email">Profession</label>
         <input
-          id="email"
+          id="profession"
           type="text"
-          placeholder="Enter your Email address"
+          placeholder="Enter your Email profession"
           className="input input-bordered input-info w-full max-w-xs"
           onChange={(e) => setProfession(e.target.value)}
         />
