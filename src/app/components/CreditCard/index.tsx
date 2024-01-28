@@ -6,6 +6,7 @@ import { Share_Tech_Mono } from "next/font/google";
 import { useState, useEffect, useRef } from "react";
 import Form from "./Form";
 import QRCode from "react-qr-code";
+import { HexColorPicker, HexColorInput } from "react-colorful";
 
 const shareTechMono = Share_Tech_Mono({
   weight: "400",
@@ -27,15 +28,8 @@ export const CreditCard = () => {
     profession: "Software Engineer",
   });
 
-  const [color, setColor] = useState(false);
+  const [color, setColor] = useState("#ffffff");
   console.log("color=>", color);
-
-  // const handleQuillChange = (content: any) => {
-  //   setUser({
-  //     ...user, // Spread existing properties
-  //     name: content, // Update name with new content
-  //   });
-  // };
 
   return (
     <div>
@@ -55,9 +49,8 @@ export const CreditCard = () => {
             </div>
 
             <div
-              className={`flex flex-col w-full h-full justify-end gap-4 ${
-                color && "text-white"
-              }`}
+              style={{ color: color }}
+              className={`flex flex-col w-full h-full justify-end gap-4`}
             >
               <div className="w-16 ml-80 md:w-16 h-8 md:ml-72">
                 <QRCode
@@ -83,12 +76,11 @@ export const CreditCard = () => {
       </Tilt>
       <Form setUser={setUser} user={user} />
 
-      <button
-        className="btn btn-outline ml-32"
-        onClick={() => setColor(!color)}
-      >
-        Color
-      </button>
+      <HexColorPicker
+        color={color}
+        onChange={setColor}
+        style={{ width: "400px", height: "200px" }}
+      />
     </div>
   );
 };
