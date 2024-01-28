@@ -6,7 +6,6 @@ import { Share_Tech_Mono } from "next/font/google";
 import { useState } from "react";
 import Form from "./Form";
 import Edit from "./Edit";
-import ReactDOM from "react-dom";
 import QRCode from "react-qr-code";
 
 const shareTechMono = Share_Tech_Mono({
@@ -21,12 +20,13 @@ export const CreditCard = () => {
   const [profession, setProfession] = useState("Software Engineer");
 
   const [color, setColor] = useState("white");
+  console.log("color=>", color);
   return (
     <div>
       <Tilt
         className={`${shareTechMono.className} w-[425px] h-[270px] bg-gradient-to-tr rounded-2xl flex content-center items-center justify-center `}
       >
-        <div className="p-8 w-full h-full bg-[url('/bg-1.png')] rounded-3xl">
+        <div className="mx-4 p-4  md:p-8 w-full h-full bg-[url('/bg-1.png')] rounded-3xl">
           <div className="relative w-full h-full">
             <div className="flex gap-10">
               <Image
@@ -41,7 +41,7 @@ export const CreditCard = () => {
             <div
               className={`flex flex-col w-full h-full justify-end gap-4 text-${color}`}
             >
-              <div className="w-18 h-8 mt-20 ml-72">
+              <div className="w-16 ml-80 md:w-16 h-8 md:ml-72">
                 <QRCode
                   size={256}
                   style={{ height: "auto", maxWidth: "100%", width: "100%" }}
