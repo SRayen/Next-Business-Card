@@ -54,8 +54,8 @@ export const CreditCard = () => {
 
   const [user, setUser] = useState<User>({
     name: "Rayen Selmen",
-    email: "selmanerayene95@example.com",
-    phoneNumber: "+1234567890",
+    email: "selmanerayene@example.com",
+    phoneNumber: "+9999999999",
     profession: "Software Engineer",
   });
 

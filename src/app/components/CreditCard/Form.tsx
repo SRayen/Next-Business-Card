@@ -2,17 +2,10 @@ import React, { Dispatch, SetStateAction } from "react";
 import { User } from ".";
 
 export default function Form({
-  // setName,
-  // setEmail,
-  // setPhoneNumber,
-  // setProfession,
   setUser,
   user,
 }: {
-  // setName: Dispatch<SetStateAction<string>>;
-  // setEmail: Dispatch<SetStateAction<string>>;
-  // setPhoneNumber: Dispatch<SetStateAction<string>>;
-  // setProfession: Dispatch<SetStateAction<string>>;
+
   setUser: Dispatch<SetStateAction<User>>;
   user: User;
 }) {
