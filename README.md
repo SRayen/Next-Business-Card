@@ -1,3 +1,6 @@
+
+![card](https://github.com/SRayen/Next-Business-Card/assets/13922445/63f10eef-8359-4eea-ab23-8a08030d4253)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
